@@ -1,13 +1,15 @@
 <template>
   <v-container>
     <v-layout column align-center>
-
+      <router-link :to="'/'"><v-btn small color="normal">Home</v-btn></router-link>
     </v-layout>
   </v-container>
 </template>
 
 <script>
   import Me from './Me.vue'
+  import Api from '../services/Api'
+
   export default {
     name: 'Posts',
     data: function () {
@@ -15,7 +17,10 @@
 
       }
     },
-    components: { Me }
+    components: { Me },
+    mounted: function () {
+      Api.getPosts()
+    }
   }
 </script>
 
